@@ -1,0 +1,15 @@
+FROM python:3.12-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV PORT=5000
+
+WORKDIR /app
+
+COPY --chown=10001:10001 app/app.py ./app.py
+
+USER 10001:10001
+
+EXPOSE 5000
+
+CMD ["python", "app.py"]
